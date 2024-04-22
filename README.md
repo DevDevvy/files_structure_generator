@@ -21,8 +21,8 @@ This script requires a Unix-like environment with Bash.
 First, clone this repository or download the `files_structure_generator.sh` script directly into your desired directory.
 
 ```bash
-git clone [Your-Repository-URL]
-cd [Your-Repository-Name]
+git clone https://github.com/DevDevvy/files_structure_generator
+cd files_structure_generator
 ```
 
 ### 2. Make the Script Executable
@@ -82,7 +82,3 @@ Feel free to add or remove items as needed for your specific project requirement
 ### Contributing
 
 Contributions are welcome. Please fork the repository, make your changes, and submit a pull request.
-
-### License
-
-Specify your license or state that the project is licensed under the MIT License, which allows commercial use, modification, distribution, private use, and patent use.
