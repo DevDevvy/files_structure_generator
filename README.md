@@ -18,19 +18,19 @@ Before you start, make sure you have a bash shell available (like Git Bash on Wi
 1. **Clone the repository**:
 
    ```bash
-   git clone https://yourgithubrepo.com/yourusername/project-file-structure-script.git
-   cd project-file-structure-script
+   git clone git@github.com:DevDevvy/files_structure_generator.git
+   cd files_structure_generator
    ```
 
 2. **Make the script executable:**:
 
    ```bash
-   chmod +x file_structure.sh
+   chmod +x files_structure_generator.sh
    ```
 
 3. **_Set an alias in your shell configuration file (e.g., .bashrc, .zshrc):_**
    ```bash
-   echo "alias generate-file-structure='/path/to/your/file_structure.sh'" >> ~/.zshrc
+   echo "alias tree='/path/to/your/files_structure_generator.sh'" >> ~/.zshrc
    source ~/.zshrc
    ```
 
@@ -39,7 +39,7 @@ Before you start, make sure you have a bash shell available (like Git Bash on Wi
 Run the script using the alias you set up:
 
 ```bash
-generate-file-structure [flags]
+tree [flags]
 ```
 
 ### Flags
@@ -72,9 +72,3 @@ CODE_EXTENSIONS=("js" "jsx" "ts" "tsx" "py")
 ## Contributing
 
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-This README.md should be placed in the root of your project directory. It provides a clear guide for users on how to set up and use the script effectively. Adjust the GitHub repository URL and paths as per your actual repository details before publishing.
