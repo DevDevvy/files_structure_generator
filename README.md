@@ -1,84 +1,80 @@
-# File Tree Generator Script
+# Project File Structure Script
 
-## Overview
-
-The File Tree Generator script is a Bash script designed to create a visual representation of the directory structure of a project, saving it to a text file and optionally printing it to the console. This tool is particularly useful for developers who want to quickly document or visualize the structure of their projects. It excludes common directories and files that are not typically needed in such documentation, like `node_modules`, `.vscode`, `.lock`, and `.env` files.
+This script is designed to help developers generate a clear, navigable file structure of their project, making it easier to create context within developer tools. It filters out non-coding and media files and can include comments from the source code, facilitating better project understanding and documentation.
 
 ## Features
 
-- **Exclusion of Unnecessary Files/Directories**: Automatically excludes directories and files like `node_modules`, `.vscode`, etc.
-- **Conditional Console Output**: Only prints the file structure to the console if executed with the `-y` flag.
-- **Saves to File**: Always saves the generated file structure to a text file named `file_structure.txt` in the current directory.
+- **Generate File Structure**: Prints a tree-like structure of the project's directories and files starting from the root.
+- **Comment Extraction**: Optionally extracts comments from code files, separating `TODO:` comments for better task tracking.
+- **Customizable Exclusions**: Allows specification of directories and file types to exclude.
+- **Flexible Output**: Supports printing to console or saving to a text file, with optional inclusion of detailed comments.
 
 ## Prerequisites
 
-This script requires a Unix-like environment with Bash.
+Before you start, make sure you have a bash shell available (like Git Bash on Windows, or the default terminal on macOS and Linux).
 
 ## Installation
 
-### 1. Clone the Repository
+1. **Clone the repository**:
 
-First, clone this repository or download the `files_structure_generator.sh` script directly into your desired directory.
+   ```bash
+   git clone https://yourgithubrepo.com/yourusername/project-file-structure-script.git
+   cd project-file-structure-script
+   ```
 
-```bash
-git clone https://github.com/DevDevvy/files_structure_generator
-cd files_structure_generator
-```
+2. **Make the script executable:**:
 
-### 2. Make the Script Executable
+   ```bash
+   chmod +x file_structure.sh
+   ```
 
-To make the `files_structure_generator.sh` script executable, run the following command:
+3. **_Set an alias in your shell configuration file (e.g., .bashrc, .zshrc):_**
+   ```bash
+   echo "alias generate-file-structure='/path/to/your/file_structure.sh'" >> ~/.zshrc
+   source ~/.zshrc
+   ```
 
-```bash
-chmod +x files_structure_generator.sh
-```
+## USAGE
 
-### 3. Creating a Bash Alias
-
-You can create an alias for easy execution of the script. Open your `~/.bashrc` or `~/.bash_profile` file and add the following line:
-
-```bash
-alias generate-tree='./path/to/files_structure_generator.sh'
-```
-
-Replace `./path/to/files_structure_generator.sh` with the actual path to the script. After adding the alias, apply the changes by running:
+Run the script using the alias you set up:
 
 ```bash
-source ~/.bashrc  # or ~/.bash_profile
+generate-file-structure [flags]
 ```
 
-### Usage
+### Flags
 
-#### Basic Execution
+- `-p`: Print the file structure directly to the console.
+- `-c`: Include comments from the code files in the output.
+- `-n`: Do not save the output to a file, only print to console (overrides any other settings).
 
-To generate the file structure and save it to `file_structure.txt` without printing to the console:
+## Configurations
 
-```bash
-generate-tree
-```
+You can customize the behavior of the script by editing the arrays at the beginning of the script:
 
-#### Execution with Console Output
+- **EXCLUDE_DIRS**: Directories to exclude from the output.
+- **EXCLUDE_FILES**: Specific file patterns to exclude.
+- **MEDIA_EXTENSIONS**: Media file types to exclude.
+- **CODE_EXTENSIONS**: File extensions to treat as code files.
 
-To generate the file structure and also print it to the console:
+## Example:
 
-```bash
-generate-tree -y
-```
+EXCLUDE_DIRS=("node_modules" ".vscode")\
+EXCLUDE_FILES=("\*.lock" ".env") \
+MEDIA_EXTENSIONS=("png" "jpg" "jpeg" "gif") \
+CODE_EXTENSIONS=("js" "jsx" "ts" "tsx" "py")
 
-### How It Works
+## Output
 
-The script walks through the directory starting from where the script is located (or another specified starting directory). It records each file and directory, ignoring specified exclusions, and constructs a tree-like structure. The results are saved to `file_structure.txt` and printed to the console if executed with the `-y` flag.
+- **File Structure**: Displays all directories and coding files from the root of the project, with optional links to the actual files.
+- **Comments**: If enabled, shows all extracted comments and specifically lists `TODO:` comments separately.
 
-### Customization
+## Contributing
 
-You can customize the list of excluded files and directories by modifying the `EXCLUDE` array within the script:
+Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
-```bash
-EXCLUDE=("node_modules" ".vscode" "*.lock" ".env")
-```
+## License
 
-Feel free to add or remove items as needed for your specific project requirements.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Contributing
-
-Contributions are welcome. Please fork the repository, make your changes, and submit a pull request.
+This README.md should be placed in the root of your project directory. It provides a clear guide for users on how to set up and use the script effectively. Adjust the GitHub repository URL and paths as per your actual repository details before publishing.
